@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://liontree.github.io//"/>
-  <updated>2015-06-20T08:11:22.000Z</updated>
+  <updated>2015-06-24T16:13:20.000Z</updated>
   <id>http://liontree.github.io//</id>
   
   <author>
@@ -16,24 +16,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="http://liontree.github.io/2015/06/20/hello-world/index.html"/>
-    <id>http://liontree.github.io/2015/06/20/hello-world/index.html</id>
-    <published>2015-06-20T08:11:22.000Z</published>
-    <updated>2015-06-20T08:11:22.000Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <title><![CDATA[UI Testing In Xcode]]></title>
+    <link href="http://liontree.github.io/2015/06/24/UI-Testing-In-Xcode/index.html"/>
+    <id>http://liontree.github.io/2015/06/24/UI-Testing-In-Xcode/index.html</id>
+    <published>2015-06-24T06:56:32.000Z</published>
+    <updated>2015-06-24T16:13:20.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="UI_Testing_In_Xcode_Introducing">UI Testing In Xcode Introducing</h2><p>Apple provides a new UI testing method in WWDC this year. It based on XCTest and Accessibility that can be used on iOS, watchOS and OSX. Before it came I use UI Automation and Appium sometimes. And now, I can try to play with the UI testng in a new way. It’s really exciting.</p>
+<p>The new UI testing method allows you to wirte the testing code in Xcode because the XCTest framework is integrated with Xcode. Different with writing JavaScript based on UI Automation in Instruments, the new method can make the testing code more unified with the project as it can be executed directly in Xcode almost like the Unit test. And a more wonderful thing is that it supports UI Recording. When you start UI Recording, it is synthesizing user events and generating code depending on your operating. The generated code needs less modify before it can run successfully. In this blog, I’ll share the process that I used UI Testing(all about iOS).</p>
+<h2 id="UI_Testing_Preparation">UI Testing Preparation</h2><h3 id="Testing_Environments">Testing Environments</h3><ol>
+<li>Xcode7</li>
+<li>iOS9 SDK</li>
+</ol>
+<p>My development devices haven’t update to iOS9, so I use the simulator instead. If you use real device, there are other requirements as you can refer to the WWDC video or the keynote.</p>
+<h3 id="Example_app">Example app</h3><p>There is an example app providing by developer.apple.com, you can download it from <a href="https://developer.apple.com/library/prerelease/watchos/samplecode/Lister/Introduction/Intro.html" target="_blank" rel="external">here</a>. After unzip it you can see a list of files in the folder as below. </p>
+<p><img src="folder.png" height="130"></p>
+<p>Choose a project from <code>objective-c</code> or <code>swift</code> as you like, then open it with Xcode7. </p>
+<p><img src="xcode7Inferface.png" height="400"></p>
+<p>According to the <code>iOS and Watch Quick Start.pdf</code> guide we must complete to set up the project before the Lister.app can run. Here are the steps:</p>
+<h4 id="setup_the_bundle_identifier">setup the bundle identifier</h4><p>Choose the project <code>Lister</code> ——&gt; <code>Building Settings</code> and find the <code>LISTER_BUNDLE_PREFIX</code>, then modify it with your own developer account.</p>
+<h4 id="select_development_team_for_these_targets">select development team for these targets</h4><pre><code>Lister
+Lister Today
+Lister WatchKit <span class="keyword">Extension</span>
+Lister WatchKit App
+ListerKit
+</code></pre><p><img src="bundle.png" height="400"></p>
+<h4 id="Create_Provisioning_Profiles_for_the_below_targets">Create Provisioning Profiles for the below targets</h4><pre><code>Lister
+Lister Today
+Lister WatchKit <span class="keyword">Extension</span>
+</code></pre><p>Click <code>Fix issue</code> and Xcode will download a new provisioning profile for that target.</p>
+<p><img src="Provisioning.png" height="80"></p>
+<p>Now you are ready to build the Lister.app after you complete all these steps.</p>
+<p>When I tried to build and run the app, there was an error happened which caused the app crash. The error message is: <code>Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;The shared application group container is unavailable. Check your entitlements and provisioning profiles for this target.</code> It shows that there is a mistake about application group container. You can choose the Lister target and find the <code>App Groups</code> in Capabilities, then fix issue. And then build and run the app again. It’s running successfully now.</p>
+<p><img src="groupcontainer.png" height="400"></p>
+<p>It is the main interface of the Lister.app.</p>
+<p><img src="appwindow.png" height="400"></p>
+<p>Now let’s have a try with the UI Testing.</p>
+<h2 id="UI_Testing_In_Xcode">UI Testing In Xcode</h2><h3 id="Add_UI_Testing_Target">Add UI Testing Target</h3><div height="200"><img src="UITest1.png" height="300" style="float:left"><img src="UITest2.png" style="float:left;margin-left:20px" height="300"></div>
+
+<p>Then execute UI Testing from <code>Lister_UI_Tests.m</code>. Tab <code>command+U</code> then the testing cases will be executed. After testing completed the flag state should be changed as below.</p>
+<p><img src="UITest3.png" height="400"></p>
+<h3 id="UI_Recording_In_Xcode">UI Recording In Xcode</h3><iframe width="420" height="315" src="https://www.youtube.com/embed/2DHmJby5FH0" frameborder="0" allowfullscreen></iframe>
+
+<p>UI Testing试玩完毕，接下来接口相关的研究及case示例整理好会再发出来：-）</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    <![CDATA[<h2 id="UI_Testing_In_Xcode_Introducing">UI Testing In Xcode Introducing</h2><p>Apple provides a new UI testing method in WWDC this year. It]]>
     </summary>
+    
+      <category term="UITestingInXcode" scheme="http://liontree.github.io/tags/UITestingInXcode/"/>
     
   </entry>
   
