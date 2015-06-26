@@ -1,27 +1,142 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  
-  <title><![CDATA[Zhao Ying]]></title>
-  
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://liontree.github.io//"/>
-  <updated>2015-06-26T10:01:27.000Z</updated>
-  <id>http://liontree.github.io//</id>
-  
-  <author>
-    <name><![CDATA[Zhao Ying]]></name>
+<!DOCTYPE html>
+<html lang="null">
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[UI Testing API]]></title>
-    <link href="http://liontree.github.io/2015/06/26/UI-Testing-API/index.html"/>
-    <id>http://liontree.github.io/2015/06/26/UI-Testing-API/index.html</id>
-    <published>2015-06-26T06:03:54.000Z</published>
-    <updated>2015-06-26T10:01:27.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="UI_Testing_API">UI Testing API</h2><p>There are there main Classes in UI Testing: <code>XCUIApplication</code>, <code>XCUIElement</code> and <code>XCUIElementQuery</code>. All of them are available for iOS9.0 and OSX10.11. Now let’s take a look at how they work. </p>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Zhao Ying">
+    <title>UI Testing API - Zhao Ying</title>
+    <meta name="author" content="Zhao Ying">
+    <meta name="description" content="Zhao Ying">
+    <link rel="icon" href="../../../../assets/images/null">
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="atom.xml">
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="../../../../assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="http://liontree.github.io">Zhao Ying</a>
+    </h1>
+    
+        <a class="header-right-picture" href="../../../../#about">
+            <img class="header-picture" src="../../../../assets/images/inspectocat.jpg"/>
+        </a>
+    
+</header>
+            <nav id="sidebar" data-behavior="1">
+    
+    <div class="sidebar-profile">
+        <a href="../../../../#about">
+            
+            <img class="sidebar-profile-picture" src="../../../../assets/images/inspectocat.jpg"/>
+            
+        </a>
+        <span class="sidebar-profile-name">Zhao Ying</span>
+    </div>
+    
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="../../../../index.html">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="../../../../all-tags">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="../../../../all-archives">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="../../../../#about">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About me</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://github.com/liontree" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://twitter.com/ZhaoYing_1023" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                    <span class="sidebar-button-desc">Twitter</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="../../../../atom.xml">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+            <div id="main" data-behavior="1">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+        <div class="post-header main-content-wrap">
+    
+        <h1 class="post-title" itemprop="headline">UI Testing API</h1>
+    
+    <div class="post-meta">
+    <time  itemprop="datePublished" content="Fri Jun 26 2015 14:03:54 GMT+0800">
+        Jun 26, 2015
+    </time>
+    
+</div>
+</div>
+    
+    <div class="post-content markdown main-content-wrap" itemprop="articleBody">
+        <h2 id="UI_Testing_API">UI Testing API</h2><p>There are there main Classes in UI Testing: <code>XCUIApplication</code>, <code>XCUIElement</code> and <code>XCUIElementQuery</code>. All of them are available for iOS9.0 and OSX10.11. Now let’s take a look at how they work. </p>
 <h3 id="XCUIApplication">XCUIApplication</h3><p>You can download the documentation from Xcode7 and here are the APIs of @interface XCUIApplication.</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">XCUIApplication</span> : <span class="title">XCUIElement</span></span></span><br><span class="line">- (<span class="keyword">void</span>)launch;</span><br><span class="line">- (<span class="keyword">void</span>)terminate;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSArray</span> &lt;<span class="built_in">NSString</span> *&gt; *launchArguments;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSDictionary</span> &lt;<span class="built_in">NSString</span> *, <span class="built_in">NSString</span> *&gt; *launchEnvironment;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>The app launchs at first when the test cases start to execute. If the application is already running, the ‘launch’ function will first terminate the existing instance to ensure clean state of the launched instance. Since all the tests need launch the application when they execute, it’s better to do this in <code>setUp()</code> that make sure it happens for each test method.</p>
@@ -34,72 +149,175 @@
 <h3 id="Demo">Demo</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)testExample &#123;</span><br><span class="line">    <span class="comment">// Use recording to get started writing UI tests.</span></span><br><span class="line">    <span class="comment">// Use XCTAssert and related functions to verify your tests produce the correct results.</span></span><br><span class="line">    XC<span class="built_in">UIApplication</span> *app = [[XC<span class="built_in">UIApplication</span> alloc] init];</span><br><span class="line">    [app launch];</span><br><span class="line">    [app<span class="variable">.tables</span><span class="variable">.cells</span><span class="variable">.staticTexts</span>[<span class="string">@"Today"</span>] tap];</span><br><span class="line">    </span><br><span class="line">    XC<span class="built_in">UIElementQuery</span> *todayNavigationBar = [app<span class="variable">.navigationBars</span> matchingIdentifier:<span class="string">@"Today"</span>];</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> originalcountOfCounts = app<span class="variable">.tables</span><span class="variable">.cells</span><span class="variable">.count</span>;</span><br><span class="line">    [todayNavigationBar<span class="variable">.buttons</span>[<span class="string">@"Edit"</span>] tap];</span><br><span class="line">    </span><br><span class="line">    XC<span class="built_in">UIElement</span> *cell = [[app<span class="variable">.tables</span> childrenMatchingType:XC<span class="built_in">UIElementTypeCell</span>] elementAtIndex:<span class="number">1</span>];</span><br><span class="line">    [cell<span class="variable">.buttons</span>[<span class="string">@"Delete "</span>] tap];</span><br><span class="line">    [[[[cell childrenMatchingType:XC<span class="built_in">UIElementTypeButton</span>] matchingIdentifier:<span class="string">@"Delete"</span>] elementAtIndex:<span class="number">0</span>] tap];</span><br><span class="line">    [todayNavigationBar<span class="variable">.buttons</span>[<span class="string">@"Done"</span>] tap];</span><br><span class="line">    [todayNavigationBar<span class="variable">.buttons</span>[<span class="string">@"Lister"</span>] tap];</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> updatedCountOfCells = app<span class="variable">.tables</span><span class="variable">.cells</span><span class="variable">.count</span>;</span><br><span class="line">    XCTAssertEqual(originalcountOfCounts, updatedCountOfCells+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><iframe src="https://player.vimeo.com/video/131854085" width="500" height="313" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe> </p><p><a href="https://vimeo.com/131854085" target="_blank" rel="external">UI Testing Example</a> from <a href="https://vimeo.com/user41408291" target="_blank" rel="external">Ying Zhao</a> on <a href="https://vimeo.com" target="_blank" rel="external">Vimeo</a>.</p><p></p>
 <p>The testing report will generate in the console when the test case running. It will output every step of the case execution. Next I’ll write more sample code in this blog：-）</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="UI_Testing_API">UI Testing API</h2><p>There are there main Classes in UI Testing: <code>XCUIApplication</code>, <code>XCUIElement</c]]>
-    </summary>
-    
-      <category term="UITestingAPI" scheme="http://liontree.github.io/tags/UITestingAPI/"/>
-    
-      <category term="UITestingInXcode" scheme="http://liontree.github.io/tags/UITestingInXcode/"/>
-    
-      <category term="XCUIApplication" scheme="http://liontree.github.io/tags/XCUIApplication/"/>
-    
-      <category term="XCUIElement" scheme="http://liontree.github.io/tags/XCUIElement/"/>
-    
-      <category term="XCUIElementQuery" scheme="http://liontree.github.io/tags/XCUIElementQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[UI Testing In Xcode]]></title>
-    <link href="http://liontree.github.io/2015/06/24/UI-Testing-In-Xcode/index.html"/>
-    <id>http://liontree.github.io/2015/06/24/UI-Testing-In-Xcode/index.html</id>
-    <published>2015-06-24T06:56:32.000Z</published>
-    <updated>2015-06-25T10:58:40.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="UI_Testing_In_Xcode_Introducing">UI Testing In Xcode Introducing</h2><p>Apple provides a new UI testing method in WWDC this year. It based on XCTest and Accessibility that can be used on iOS, watchOS and OSX. Before it appears I use UI Automation and Appium sometimes. And now, I can try to play with the UI testing in a new way. It’s really exciting.</p>
-<p>The new UI testing tool allows you to wirte the testing code in Xcode because the XCTest framework is integrated with Xcode. Different with writing JavaScript based on UI Automation in Instruments, the new method can make the testing code more unified with the project as it can be executed directly in Xcode almost like the Unit test. And a more wonderful thing is that it supports UI Recording. When you start UI Recording, it is synthesizing user events and generating code depending on your operating. The generated code needs less modify before it can run successfully. In this blog, I’ll share the process that I used UI Testing(all about iOS).</p>
-<h2 id="UI_Testing_Preparation">UI Testing Preparation</h2><h3 id="Testing_Environments">Testing Environments</h3><ol>
-<li>Xcode7</li>
-<li>iOS9 SDK</li>
-</ol>
-<p>My development devices haven’t update to iOS9, so I use the simulator instead. If you use real device, there are other requirements as you can refer to the WWDC video or the keynote.</p>
-<h3 id="Example_app">Example app</h3><p>There is an example app providing by developer.apple.com, you can download it from <a href="https://developer.apple.com/library/prerelease/watchos/samplecode/Lister/Introduction/Intro.html" target="_blank" rel="external">here</a>. After unzip it you can see a list of files in the folder as below. </p>
-<p><img src="folder.png" height="130"></p>
-<p>Choose a project from <code>objective-c</code> or <code>swift</code> as you like, then open it with Xcode7. </p>
-<p><img src="xcode7Inferface.png" height="400"></p>
-<p>According to the <code>iOS and Watch Quick Start.pdf</code> guide we must complete to set up the project before the Lister.app can run. Here are the steps:</p>
-<h4 id="setup_the_bundle_identifier">setup the bundle identifier</h4><p>Choose the project <code>Lister</code> ——&gt; <code>Building Settings</code> and find the <code>LISTER_BUNDLE_PREFIX</code>, then modify it with your own developer account.</p>
-<h4 id="select_development_team_for_these_targets">select development team for these targets</h4><pre><code>Lister
-Lister Today
-Lister WatchKit <span class="keyword">Extension</span>
-Lister WatchKit App
-ListerKit
-</code></pre><p><img src="bundle.png" height="400"></p>
-<h4 id="Create_Provisioning_Profiles_for_the_below_targets">Create Provisioning Profiles for the below targets</h4><pre><code>Lister
-Lister Today
-Lister WatchKit <span class="keyword">Extension</span>
-</code></pre><p>Click <code>Fix issue</code> and Xcode will download a new provisioning profile for that target.</p>
-<p><img src="Provisioning.png" height="80"></p>
-<p>Now you are ready to build the Lister.app after you complete all these steps.</p>
-<p>When I tried to build and run the app, there was an error happened which caused the app crash. The error message is: <code>Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;The shared application group container is unavailable. Check your entitlements and provisioning profiles for this target.</code> It shows that there is a mistake about application group container. You can choose the Lister target and find the <code>App Groups</code> in Capabilities, then fix issue. And then build and run the app again. It’s running successfully now.</p>
-<p><img src="groupcontainer.png" height="400"></p>
-<p>It is the main interface of the Lister.app.</p>
-<p><img src="appwindow.png" height="400"></p>
-<p>Now let’s have a try with the UI Testing.</p>
-<h2 id="UI_Testing_In_Xcode">UI Testing In Xcode</h2><h3 id="Add_UI_Testing_Target">Add UI Testing Target</h3><div height="200"><img src="UITest1.png" height="300" style="float:left"><img src="UITest2.png" style="float:left;margin-left:20px" height="300"></div>
 
-<p>Then execute UI Testing from <code>Lister_UI_Tests.m</code>. Tab <code>command+U</code> then the testing cases will be executed. After testing completed the flag state should be changed as below.</p>
-<p><img src="UITest3.png" height="400"></p>
-<h3 id="UI_Recording_In_Xcode">UI Recording In Xcode</h3><p><iframe src="https://player.vimeo.com/video/131726133" width="500" height="313" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe> </p><p><a href="https://vimeo.com/131726133" target="_blank" rel="external">UI Recording In Xcode</a> from <a href="https://vimeo.com/user41408291" target="_blank" rel="external">Ying Zhao</a> on <a href="https://vimeo.com" target="_blank" rel="external">Vimeo</a>.</p><p></p>
-<p>UI Testing试玩完毕，接下来接口相关的研究及case示例整理好会再发出来：-）</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="UI_Testing_In_Xcode_Introducing">UI Testing In Xcode Introducing</h2><p>Apple provides a new UI testing method in WWDC this year. It]]>
-    </summary>
-    
-      <category term="UITestingInXcode" scheme="http://liontree.github.io/tags/UITestingInXcode/"/>
-    
-  </entry>
-  
-</feed>
+        
+            
+        
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="../../../../tags/index.html">UITestingAPI</a> <a class="tag tag--primary tag--small t-link" href="../../../../tags/index.html">UITestingInXcode</a> <a class="tag tag--primary tag--small t-link" href="../../../../tags/index.html">XCUIApplication</a> <a class="tag tag--primary tag--small t-link" href="../../../../tags/index.html">XCUIElement</a> <a class="tag tag--primary tag--small t-link" href="../../../../tags/index.html">XCUIElementQuery</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="../../24/UI-Testing-In-Xcode/index.html" data-tooltip="UI Testing In Xcode">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://liontree.github.io/2015/06/26/UI-Testing-API/index.html">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://liontree.github.io/2015/06/26/UI-Testing-API/index.html">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://liontree.github.io/2015/06/26/UI-Testing-API/index.html">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2015 Zhao Ying. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="../../24/UI-Testing-In-Xcode/index.html" data-tooltip="UI Testing In Xcode">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://liontree.github.io/2015/06/26/UI-Testing-API/index.html">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://liontree.github.io/2015/06/26/UI-Testing-API/index.html">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://liontree.github.io/2015/06/26/UI-Testing-API/index.html">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+                </div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="../../../../assets/images/inspectocat.jpg"/>
+        
+            <h4 id="about-card-name">Zhao Ying</h4>
+        
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Beijing China
+            </h5>
+        
+    </div>
+</div>
+        <div id="cover" style="background-image:url('/assets/images/Hawaii.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="../../../../assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'mezhaoying';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+
+</html>
