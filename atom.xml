@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://liontree.github.io//"/>
-  <updated>2015-06-26T10:01:27.000Z</updated>
+  <updated>2015-06-27T09:41:52.000Z</updated>
   <id>http://liontree.github.io//</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[make your Terminal more interesting]]></title>
+    <link href="http://liontree.github.io/2015/06/27/make-your-Terminal-more-interesting/index.html"/>
+    <id>http://liontree.github.io/2015/06/27/make-your-Terminal-more-interesting/index.html</id>
+    <published>2015-06-27T09:03:33.000Z</published>
+    <updated>2015-06-27T09:41:52.000Z</updated>
+    <content type="html"><![CDATA[<p>经常ssh登录到公司的开发机上时，会看到一些比较有意思的welcome words，保守一点的一般是公司的名字，出格一点的那就不一定是显示什么了：-）我们自己平时在打开终端时，默认是没有这些有趣的东西的，不过没有没关系，可以自己设，方法非常简单，只需编辑<code>/etc/</code>下面的一个叫<code>motd</code>的文件即可，贴上喜欢的ASCII。</p>
+<p>一般来说/etc/下面默认没有这个文件，新建一个即可，另外给大家推荐一个可以生成ASCII的网站：<a href="http://ascii.mastervb.net/" target="_blank" rel="external">http://ascii.mastervb.net/</a></p>
+<p>上一张我现在的终端界面吧</p>
+<p><img src="terminal.png" height="400"></p>
+<p>Have fun-:)</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>经常ssh登录到公司的开发机上时，会看到一些比较有意思的welcome words，保守一点的一般是公司的名字，出格一点的那就不一定是显示什么了：-）我们自己平时在打开终端时，默认是没有这些有趣的东西的，不过没有没关系，可以自己设，方法非常简单，只需编辑<code>/etc]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[UI Testing API]]></title>
