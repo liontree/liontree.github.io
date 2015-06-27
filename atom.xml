@@ -57,15 +57,15 @@
     <![CDATA[<h2 id="UI_Testing_API">UI Testing API</h2><p>There are there main Classes in UI Testing: <code>XCUIApplication</code>, <code>XCUIElement</c]]>
     </summary>
     
-      <category term="UITestingAPI" scheme="http://liontree.github.io/tags/UITestingAPI/"/>
+      <category term="UITestingAPI" scheme="http://liontree.github.io/all-tags/UITestingAPI/"/>
     
-      <category term="UITestingInXcode" scheme="http://liontree.github.io/tags/UITestingInXcode/"/>
+      <category term="UITestingInXcode" scheme="http://liontree.github.io/all-tags/UITestingInXcode/"/>
     
-      <category term="XCUIApplication" scheme="http://liontree.github.io/tags/XCUIApplication/"/>
+      <category term="XCUIApplication" scheme="http://liontree.github.io/all-tags/XCUIApplication/"/>
     
-      <category term="XCUIElement" scheme="http://liontree.github.io/tags/XCUIElement/"/>
+      <category term="XCUIElement" scheme="http://liontree.github.io/all-tags/XCUIElement/"/>
     
-      <category term="XCUIElementQuery" scheme="http://liontree.github.io/tags/XCUIElementQuery/"/>
+      <category term="XCUIElementQuery" scheme="http://liontree.github.io/all-tags/XCUIElementQuery/"/>
     
   </entry>
   
@@ -116,7 +116,7 @@ Lister WatchKit <span class="keyword">Extension</span>
     <![CDATA[<h2 id="UI_Testing_In_Xcode_Introducing">UI Testing In Xcode Introducing</h2><p>Apple provides a new UI testing method in WWDC this year. It]]>
     </summary>
     
-      <category term="UITestingInXcode" scheme="http://liontree.github.io/tags/UITestingInXcode/"/>
+      <category term="UITestingInXcode" scheme="http://liontree.github.io/all-tags/UITestingInXcode/"/>
     
   </entry>
   
