@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://liontree.github.io//"/>
-  <updated>2015-06-27T09:41:52.000Z</updated>
+  <updated>2015-06-28T09:43:09.000Z</updated>
   <id>http://liontree.github.io//</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[基于Hexo和Github搭建博客]]></title>
+    <link href="http://liontree.github.io/2015/06/28/%E5%9F%BA%E4%BA%8EHexo%E5%92%8CGithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index.html"/>
+    <id>http://liontree.github.io/2015/06/28/基于Hexo和Github搭建博客/index.html</id>
+    <published>2015-06-28T08:04:15.000Z</published>
+    <updated>2015-06-28T09:43:09.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a>是一个博客框架，功能上有点类似于Jekyll，都可以实现“一键部署”你自己的博客的效果，本文就来简单介绍下如何基于Hexo &amp; Github Page搭建自己的blog。</p>
+<h2 id="Preparation">Preparation</h2><ol>
+<li>Git，如果没有的话首先<a href="http://git-scm.com/" target="_blank" rel="external">安装</a>并<a href="http://git-scm.com/docs/git-config" target="_blank" rel="external">配置</a></li>
+<li>nodejs，安装地址：<a href="https://nodejs.org/" target="_blank" rel="external">nodejs</a></li>
+</ol>
+<h2 id="Hexo_Install">Hexo Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init yourB<span class="built_in">log</span></span><br><span class="line">$ <span class="built_in">cd</span> yourB<span class="built_in">log</span></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>以上步骤完成后，就可以在<code>yourBlog</code>目录下看到新生成的文件了</p>
+<p><img src="hexofiles.png" height="130"></p>
+<h2 id="Hexo_Config">Hexo Config</h2><h3 id="Github_repository">Github repository</h3><p>搭建blog首先要有一个托管的地方，如果你之前用Github托管过博客，那么这不是什么问题，新建一个仓库，然后设置<code>Deploy keys</code>。</p>
+<p>生成Deploy keys:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="githubsetting1.png" height="320"></p>
+<p><img src="githubsetting2.png" height="120"></p>
+<h3 id="_config-yml">_config.yml</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># URL&#10;url: http://yoursite.com&#10;root: /&#10;permalink: :year/:month/:day/:title/index.html&#10;permalink_defaults:&#10;&#10;# Directory&#10;source_dir: source&#10;public_dir: public&#10;tag_dir: all-tags&#10;archive_dir: archives&#10;category_dir: categories&#10;code_dir: downloads/code&#10;i18n_dir: :lang&#10;skip_render:&#10;&#10;# Writing&#10;new_post_name: :title.md # File name of new posts&#10;default_layout: post&#10;titlecase: false # Transform title into titlecase&#10;external_link: true # Open external links in new tab&#10;filename_case: 0&#10;render_drafts: false&#10;post_asset_folder: true&#10;relative_link: true&#10;future: true&#10;highlight:&#10;  enable: true&#10;  line_number: true&#10;  auto_detect: true&#10;  tab_replace:&#10;&#10;# Category &#38; Tag&#10;default_category: uncategorized&#10;category_map:&#10;tag_map: &#10;&#10;# Date / Time format&#10;date_format: YYYY-MM-DD&#10;time_format: HH:mm:ss&#10;&#10;# Pagination&#10;per_page: 10&#10;pagination_dir: page&#10;&#10;# Extensions&#10;theme: tranquilpeak&#10;&#10;feed:&#10;    type: atom&#10;    path: atom.xml&#10;    limit: 20&#10;&#10;# Deployment&#10;deploy:&#10;  type: git&#10;  repo: https://github.com/XXX.git&#10;  branch: master</span><br></pre></td></tr></table></figure>
+<h3 id="Hexo_themes">Hexo themes</h3><p><a href="https://hexo.io/themes/" target="_blank" rel="external">这里</a>有很多不错的主题，下载完成后在Hexo的<code>_config.yml</code>中设置<code>theme</code>，有些主题自己本身也有相应的设置，可参考各自的README。</p>
+<p>OK，到此一个基于Hexo&amp;Github搭建的blog已经完成了，接下来就是如何开始写了，不详细说了哈，hexo的基本命令都不复杂，可参考<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官方文档</a>。</p>
+<p>周末愉快：-）</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a>是一个博客框架，功能上有点类似于Jekyll，都可以实现“一键部署”你自己的博客的效果，本文就来简单介绍下如何基于Hexo &am]]>
+    </summary>
+    
+      <category term="Hexo" scheme="http://liontree.github.io/all-tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[make your Terminal more interesting]]></title>
