@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://liontree.github.io//"/>
-  <updated>2015-07-05T09:36:24.000Z</updated>
+  <updated>2015-07-05T15:14:38.000Z</updated>
   <id>http://liontree.github.io//</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Monitor Memory Usage Using Activity Monitor]]></title>
+    <link href="http://liontree.github.io/2015/07/05/Monitor-Memory-Usage/index.html"/>
+    <id>http://liontree.github.io/2015/07/05/Monitor-Memory-Usage/index.html</id>
+    <published>2015-07-05T13:45:53.000Z</published>
+    <updated>2015-07-05T15:14:38.000Z</updated>
+    <content type="html"><![CDATA[<p>想要监控app内存的总体使用情况，包括实际内存和虚拟内存，可以使用<code>Activity Monitor</code>。在Instruments中选择Activity Monitor，同时下面有对它的介绍。</p>
+<p><img src="ActivityMonitor.png" height="300"></p>
+<p>Activity Monitor默认配置了在Timeline面板中显示的内容，包括<code>TotalVMSize</code>、<code>CPUTotalLoad</code>、<code>CPUUserLoad</code>、<code>CPUSystemLoad</code>，在使用时可以根据自己的需要选择相关的分析内容进行显示，并且不同的内存使用部分可以使用不同的颜色加以区分，下面就是Activity Monitor在使用过程中的界面截图，在右下角可选择内存相关的分析内容。</p>
+<p><img src="MonitorCapture1.png" height="400"></p>
+<ul>
+<li>Physical Memory Wired——操作系统占用的内存</li>
+<li>Physical Memory Active——除操作系统外其它进程占用的内存</li>
+<li>Physical Memory Inactive——最近被释放的内存</li>
+<li>Physical Memory Used——profiling当前进程时使用的总内存</li>
+<li>Physical Memory Free——当前的可用内存</li>
+<li>Total VM Size——虚拟内存的占用量</li>
+</ul>
+<p>在profiling的过程中，可以观察当前正在运行的进程的内存使用分析，例如demo的内存使用如下：</p>
+<p><img src="demoMemory.png" height="400"></p>
+<p>同时也可以与其它正在运行的进程进行比较，可以大致了解app所占用的内存是处于怎样的情况。从下图可以看出，哪个进程是内存的占用大户。</p>
+<p><img src="MonitorCapture0.png" height="400"></p>
+<p>以上都只是对内存使用总体情况的宏观了解，如果想定位app的内存问题，还需要依赖<code>Allocations</code>、<code>Leaks</code>和<code>Zombies</code>。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>想要监控app内存的总体使用情况，包括实际内存和虚拟内存，可以使用<code>Activity Monitor</code>。在Instruments中选择Activity Monitor，同时下面有对它的介绍。</p>
+<p><img src="ActivityMonit]]>
+    </summary>
+    
+      <category term="Instruments" scheme="http://liontree.github.io/all-tags/Instruments/"/>
+    
+      <category term="Memory Usage" scheme="http://liontree.github.io/all-tags/Memory-Usage/"/>
+    
+      <category term="iOS" scheme="http://liontree.github.io/all-tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[使用Instruments监控app内存]]></title>
