@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Zhao Ying">
-    <title>基于Hexo和Github搭建博客 - Zhao Ying</title>
+    <title>使用Instruments监控app内存 - Zhao Ying</title>
     <meta name="author" content="Zhao Ying">
     <meta name="description" content="Zhao Ying">
     <link rel="icon" href="../../../../assets/images/null">
@@ -125,33 +125,28 @@
     
         <div class="post-header main-content-wrap">
     
-        <h1 class="post-title" itemprop="headline">基于Hexo和Github搭建博客</h1>
+        <h1 class="post-title" itemprop="headline">使用Instruments监控app内存</h1>
     
     <div class="post-meta">
-    <time  itemprop="datePublished" content="Sun Jun 28 2015 16:04:15 GMT+0800">
-        Jun 28, 2015
+    <time  itemprop="datePublished" content="Sun Jul 05 2015 16:10:36 GMT+0800">
+        Jul 05, 2015
     </time>
     
 </div>
 </div>
     
     <div class="post-content markdown main-content-wrap" itemprop="articleBody">
-        <p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a>是一个博客框架，功能上有点类似于Jekyll，都可以实现“一键部署”你自己的博客的效果，本文就来简单介绍下如何基于Hexo &amp; Github Page搭建自己的blog。</p>
-<h2 id="Preparation">Preparation</h2><ol>
-<li>Git，如果没有的话首先<a href="http://git-scm.com/" target="_blank" rel="external">安装</a>并<a href="http://git-scm.com/docs/git-config" target="_blank" rel="external">配置</a></li>
-<li>nodejs，安装地址：<a href="https://nodejs.org/" target="_blank" rel="external">nodejs</a></li>
-</ol>
-<h2 id="Hexo_Install">Hexo Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init yourB<span class="built_in">log</span></span><br><span class="line">$ <span class="built_in">cd</span> yourB<span class="built_in">log</span></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>以上步骤完成后，就可以在<code>yourBlog</code>目录下看到新生成的文件了</p>
-<p><img src="hexofiles.png" height="130"></p>
-<h2 id="Hexo_Config">Hexo Config</h2><h3 id="Github_repository">Github repository</h3><p>搭建blog首先要有一个托管的地方，如果你之前用Github托管过博客，那么这不是什么问题，新建一个仓库，然后设置<code>Deploy keys</code>。</p>
-<p>生成Deploy keys:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="githubsetting1.png" height="320"></p>
-<p><img src="githubsetting2.png" height="120"></p>
-<h3 id="_config-yml">_config.yml</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># URL&#10;url: http://yoursite.com&#10;root: /&#10;permalink: :year/:month/:day/:title/index.html&#10;permalink_defaults:&#10;&#10;# Directory&#10;source_dir: source&#10;public_dir: public&#10;tag_dir: all-tags&#10;archive_dir: archives&#10;category_dir: categories&#10;code_dir: downloads/code&#10;i18n_dir: :lang&#10;skip_render:&#10;&#10;# Writing&#10;new_post_name: :title.md # File name of new posts&#10;default_layout: post&#10;titlecase: false # Transform title into titlecase&#10;external_link: true # Open external links in new tab&#10;filename_case: 0&#10;render_drafts: false&#10;post_asset_folder: true&#10;relative_link: true&#10;future: true&#10;highlight:&#10;  enable: true&#10;  line_number: true&#10;  auto_detect: true&#10;  tab_replace:&#10;&#10;# Category &#38; Tag&#10;default_category: uncategorized&#10;category_map:&#10;tag_map: &#10;&#10;# Date / Time format&#10;date_format: YYYY-MM-DD&#10;time_format: HH:mm:ss&#10;&#10;# Pagination&#10;per_page: 10&#10;pagination_dir: page&#10;&#10;# Extensions&#10;theme: tranquilpeak&#10;&#10;feed:&#10;    type: atom&#10;    path: atom.xml&#10;    limit: 20&#10;&#10;# Deployment&#10;deploy:&#10;  type: git&#10;  repo: https://github.com/XXX.git&#10;  branch: master</span><br></pre></td></tr></table></figure>
-<h3 id="Hexo_themes">Hexo themes</h3><p><a href="https://hexo.io/themes/" target="_blank" rel="external">这里</a>有很多不错的主题，下载完成后在Hexo的<code>_config.yml</code>中设置<code>theme</code>，有些主题自己本身也有相应的设置，可参考各自的README。</p>
-<p>OK，到此一个基于Hexo&amp;Github搭建的blog已经完成了，接下来就是如何开始写了，不详细说了哈，hexo的基本命令都不复杂，可参考<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官方文档</a>。</p>
-<p>周末愉快：-）</p>
+        <h2 id="关于内存分析">关于内存分析</h2><p>当app在创建对象时，就已经开始为这些对象分配内存了。在ARC（自动引用计数）之前，一直是由app本身来监控对象的行为，当对象不再被需要时，app要对这些对象所占用的内存进行释放以便于这些内存再被重新分配给其它对象。ARC出现后，内存管理就变得相对简单了，ARC是一个新的系统特性，它可以利用系统来进行内存管理。当ARC模式开启时，系统来处理对于对象的内存分配的监控，并且在适当的时候进行释放，对于app本身来说几乎不需要做什么操作。其实，无论怎样管理内存，都会多多少少遇到一些内存方面的问题，即使是设计很恰当的app也不例外。</p>
+<p>利用Instruments中自带的一些内存分析的工具，可以帮助开发者了解app的内存使用情况，从而快速定位内存管理方面的问题。甚至可以自动探测出某些内存错误的类型，并且在分析过程中自动标记出来。利用Instruments，可以监控到以下几种内存使用信息。</p>
+<h3 id="Overall_Memory_Use">Overall Memory Use</h3><p>总体内存的监控会显示出开发者的app占用内存的情况，并且会与系统中其它正在运行的进程做比较。</p>
+<h3 id="Leaked_Memory">Leaked Memory</h3><p>这种内存是指在某一刻被分配出去了，但是永远不会被系统回收，并且也不会再被app引用。因为没有对象会引用这块内存，所以就没法对这部分内存释放，导致这部分内存不能再被使用。举个栗子，假设你编码时，在绘画中创造了一个长方形的对象，但当绘画这个操作结束时，并没有对长方形这个对象所占用的内存进行释放，在这种场景下，重复上述过程，你的app就会存在越来越多的内存泄露。为了修复这些问题，开发者就必须清楚定位哪些对象没有被正确地释放，以便于在恰当的时候释放它们。</p>
+<h3 id="Abandoned_Memory">Abandoned Memory</h3><p>这种内存是指在某时刻被分配出去了，但其实这些内存并不被需要，例如，假设你的app在向缓存中添加图片，但再这之前这些图片已经被缓存了——即对于相同的图片使用了两遍内存的分配，再比方说你的app创建了一个数组，可能稍后要访问数组中的对象，但事实上后面并没有使用到这个数组。不同于内存泄露，该种类型的内存仍然在app中被引用，但只是没有目的地使用，某种意义上来说这部分内存也是合理的，所以对于Instruments来说定位此种类型的内存问题是比较困难的，更多地是需要开发者自己来定位。</p>
+<h3 id="Zombies">Zombies</h3><p>这种内存是指已经被释放了，但是代码仍然在某些地方去引用它们。例如，你的app包含了一个图片的缓存，当缓存被清空时，app就不该再去访问缓存被清空之前包含的图片对象，访问这些已经不存在的对象会造成zombies：-（</p>
+<hr>
+
+<p>因为内存问题通常来说都比较难定位，所以Instruments会在app的运行期间给出周期性的数据快照，以此来帮助开发者发现不符合预期的内存增长情况。通过这些数据快照，开发者可以了解内存是如何被分配和释放的。</p>
+<p>在对app进行测试时，持续一系列的重复操作也会帮助定位内存问题，例如当用户操作开始时，app会进入一个新的状态，这时会有一堆对象被创建，当操作结束后，app恢复到初始状态，正常情况下，这个过程中所创建的对象都应该被正确地释放。比方说app新new了一个viewController，当这个viewController被关闭时，所有这个viewController中的对象都该被释放，如果这些对象没被释放，就会导致内存问题。当进行总体的内存分析时，一些初始化操作可能会导致内存在一开始被大量地使用，因此，测试时重复用户的操作会获取更加准确的内存分析结果。</p>
+<p>——Not The End</p>
 
         
             
@@ -162,7 +157,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="../../../../all-tags/index.html">Hexo</a>
+    <a class="tag tag--primary tag--small t-link" href="../../../../all-tags/index.html">Instruments</a> <a class="tag tag--primary tag--small t-link" href="../../../../all-tags/index.html">Memory Usage</a> <a class="tag tag--primary tag--small t-link" href="../../../../all-tags/index.html">iOS</a>
 
             </div>
         
@@ -171,7 +166,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="../../../07/05/使用Instruments监控app内存/index.html"  data-tooltip="使用Instruments监控app内存">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -179,7 +174,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="../../27/make-your-Terminal-more-interesting/index.html" data-tooltip="make your Terminal more interesting">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="../../../06/28/基于Hexo和Github搭建博客/index.html" data-tooltip="基于Hexo和Github搭建博客">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -189,17 +184,17 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://liontree.github.io/2015/06/28/基于Hexo和Github搭建博客/index.html">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://liontree.github.io/2015/07/05/使用Instruments监控app内存/index.html">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://liontree.github.io/2015/06/28/基于Hexo和Github搭建博客/index.html">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://liontree.github.io/2015/07/05/使用Instruments监控app内存/index.html">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://liontree.github.io/2015/06/28/基于Hexo和Github搭建博客/index.html">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://liontree.github.io/2015/07/05/使用Instruments监控app内存/index.html">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -238,7 +233,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="../../../07/05/使用Instruments监控app内存/index.html"  data-tooltip="使用Instruments监控app内存">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -246,7 +241,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="../../27/make-your-Terminal-more-interesting/index.html" data-tooltip="make your Terminal more interesting">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="../../../06/28/基于Hexo和Github搭建博客/index.html" data-tooltip="基于Hexo和Github搭建博客">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -256,17 +251,17 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://liontree.github.io/2015/06/28/基于Hexo和Github搭建博客/index.html">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://liontree.github.io/2015/07/05/使用Instruments监控app内存/index.html">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://liontree.github.io/2015/06/28/基于Hexo和Github搭建博客/index.html">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://liontree.github.io/2015/07/05/使用Instruments监控app内存/index.html">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://liontree.github.io/2015/06/28/基于Hexo和Github搭建博客/index.html">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://liontree.github.io/2015/07/05/使用Instruments监控app内存/index.html">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>

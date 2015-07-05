@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://liontree.github.io//"/>
-  <updated>2015-06-28T09:43:09.000Z</updated>
+  <updated>2015-07-05T09:36:24.000Z</updated>
   <id>http://liontree.github.io//</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[使用Instruments监控app内存]]></title>
+    <link href="http://liontree.github.io/2015/07/05/%E4%BD%BF%E7%94%A8Instruments%E7%9B%91%E6%8E%A7app%E5%86%85%E5%AD%98/index.html"/>
+    <id>http://liontree.github.io/2015/07/05/使用Instruments监控app内存/index.html</id>
+    <published>2015-07-05T08:10:36.000Z</published>
+    <updated>2015-07-05T09:36:24.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="关于内存分析">关于内存分析</h2><p>当app在创建对象时，就已经开始为这些对象分配内存了。在ARC（自动引用计数）之前，一直是由app本身来监控对象的行为，当对象不再被需要时，app要对这些对象所占用的内存进行释放以便于这些内存再被重新分配给其它对象。ARC出现后，内存管理就变得相对简单了，ARC是一个新的系统特性，它可以利用系统来进行内存管理。当ARC模式开启时，系统来处理对于对象的内存分配的监控，并且在适当的时候进行释放，对于app本身来说几乎不需要做什么操作。其实，无论怎样管理内存，都会多多少少遇到一些内存方面的问题，即使是设计很恰当的app也不例外。</p>
+<p>利用Instruments中自带的一些内存分析的工具，可以帮助开发者了解app的内存使用情况，从而快速定位内存管理方面的问题。甚至可以自动探测出某些内存错误的类型，并且在分析过程中自动标记出来。利用Instruments，可以监控到以下几种内存使用信息。</p>
+<h3 id="Overall_Memory_Use">Overall Memory Use</h3><p>总体内存的监控会显示出开发者的app占用内存的情况，并且会与系统中其它正在运行的进程做比较。</p>
+<h3 id="Leaked_Memory">Leaked Memory</h3><p>这种内存是指在某一刻被分配出去了，但是永远不会被系统回收，并且也不会再被app引用。因为没有对象会引用这块内存，所以就没法对这部分内存释放，导致这部分内存不能再被使用。举个栗子，假设你编码时，在绘画中创造了一个长方形的对象，但当绘画这个操作结束时，并没有对长方形这个对象所占用的内存进行释放，在这种场景下，重复上述过程，你的app就会存在越来越多的内存泄露。为了修复这些问题，开发者就必须清楚定位哪些对象没有被正确地释放，以便于在恰当的时候释放它们。</p>
+<h3 id="Abandoned_Memory">Abandoned Memory</h3><p>这种内存是指在某时刻被分配出去了，但其实这些内存并不被需要，例如，假设你的app在向缓存中添加图片，但再这之前这些图片已经被缓存了——即对于相同的图片使用了两遍内存的分配，再比方说你的app创建了一个数组，可能稍后要访问数组中的对象，但事实上后面并没有使用到这个数组。不同于内存泄露，该种类型的内存仍然在app中被引用，但只是没有目的地使用，某种意义上来说这部分内存也是合理的，所以对于Instruments来说定位此种类型的内存问题是比较困难的，更多地是需要开发者自己来定位。</p>
+<h3 id="Zombies">Zombies</h3><p>这种内存是指已经被释放了，但是代码仍然在某些地方去引用它们。例如，你的app包含了一个图片的缓存，当缓存被清空时，app就不该再去访问缓存被清空之前包含的图片对象，访问这些已经不存在的对象会造成zombies：-（</p>
+<hr>
+
+<p>因为内存问题通常来说都比较难定位，所以Instruments会在app的运行期间给出周期性的数据快照，以此来帮助开发者发现不符合预期的内存增长情况。通过这些数据快照，开发者可以了解内存是如何被分配和释放的。</p>
+<p>在对app进行测试时，持续一系列的重复操作也会帮助定位内存问题，例如当用户操作开始时，app会进入一个新的状态，这时会有一堆对象被创建，当操作结束后，app恢复到初始状态，正常情况下，这个过程中所创建的对象都应该被正确地释放。比方说app新new了一个viewController，当这个viewController被关闭时，所有这个viewController中的对象都该被释放，如果这些对象没被释放，就会导致内存问题。当进行总体的内存分析时，一些初始化操作可能会导致内存在一开始被大量地使用，因此，测试时重复用户的操作会获取更加准确的内存分析结果。</p>
+<p>——Not The End</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="关于内存分析">关于内存分析</h2><p>当app在创建对象时，就已经开始为这些对象分配内存了。在ARC（自动引用计数）之前，一直是由app本身来监控对象的行为，当对象不再被需要时，app要对这些对象所占用的内存进行释放以便于这些内存再被重新分配给其它对象。AR]]>
+    </summary>
+    
+      <category term="Instruments" scheme="http://liontree.github.io/all-tags/Instruments/"/>
+    
+      <category term="Memory Usage" scheme="http://liontree.github.io/all-tags/Memory-Usage/"/>
+    
+      <category term="iOS" scheme="http://liontree.github.io/all-tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[基于Hexo和Github搭建博客]]></title>
